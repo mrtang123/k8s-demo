@@ -53,7 +53,7 @@ public class ProductController {
         return "redirect:/product/" + product.getId();
     }
 
-    @RequestMapping(value = "product", method = RequestMethod.POST)
+    @RequestMapping(value = "restProducts", method = RequestMethod.POST)
     @ResponseBody
     public Iterable<Product> restProduct(){
         return productService.listAllProducts();
