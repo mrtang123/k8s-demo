@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class ProductController {
@@ -50,6 +51,12 @@ public class ProductController {
         productService.saveProduct(product);
 
         return "redirect:/product/" + product.getId();
+    }
+
+    @RequestMapping(value = "product", method = RequestMethod.POST)
+    @ResponseBody
+    public Iterable<Product> restProduct(){
+        return productService.listAllProducts();
     }
 
 }
